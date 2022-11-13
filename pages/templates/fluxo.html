@@ -1,0 +1,123 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block 'head' %}<link href="{% static 'css/chart.css' %}" rel="stylesheet">{% endblock %}
+
+{% block 'title' %}Fluxo{% endblock %}
+
+{% block 'body' %}
+
+<header>
+    <h1>Captágua</h1>
+    <nav>
+        <a href="../">Página Inicial</a>
+        <a href="../fluxo" class="selecionado">Fluxo</a>
+        <a href="../umidade">Umidade</a>
+    </nav>
+</header>
+<main>
+    <div class="secao-grafico">
+        <div class="titulo">Fluxo de água</div>
+        <div class="grafico">
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+    <div class="aviso">
+        <img src="{% static 'alert-outline.svg' %}" alt="Sinal de aviso">
+    </div>
+</main>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script>
+const df = {{df|safe}}
+const df1 = {{df1|safe}}
+const ctx = document.getElementById('myChart').getContext('2d');
+
+const gradient = ctx.createLinearGradient(0, 0, 0, 451);
+    gradient.addColorStop(0, 'rgba(247, 108, 108, 1)');
+    gradient.addColorStop(1, 'rgba(36, 48, 94, 1)');
+
+const myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: df1,
+        datasets: [{
+            label: "L/min", 
+            data: df,
+            backgroundColor: gradient,
+            borderColor: "#F76C6C",
+            borderWidth: 2,
+            fill: true,
+            tension: 0.3,
+            
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                labels: {
+                    color: "white",
+                }
+            },
+            tooltip: {
+                titleFont: {
+                    size: 15
+                },
+                bodyFont: {
+                    size: 15
+                }
+            }
+        },
+        scales: {
+            x: {
+                ticks: {
+                    color: "white",
+                }
+            },
+            y: {
+                ticks: {
+                    beginAtZero: true,
+                    color: "white",
+                },
+                grid: {
+                    // lineWidth:0,
+                }
+            }
+        }
+    }
+});
+
+const aviso = document.querySelector('.aviso')
+const icone = document.querySelector('.aviso img')
+if (df[df.length - 1] >= 200) {
+    const paragrafo = document.createElement('p')
+    paragrafo.textContent = 'Fluxo de água extremamente acima do recomendado.'
+    aviso.appendChild(paragrafo)
+
+    const quebra = document.createElement('br')
+    aviso.appendChild(quebra)
+
+    const paragrafo2 = document.createElement('p')
+    paragrafo2.textContent = 'Risco do reservatório transbordar.'
+    aviso.appendChild(paragrafo2)
+
+    aviso.style.visibility = 'visible'
+    aviso.style.background = '#F76C6C'
+} else if (df[df.length - 1] >= 150) {
+    const paragrafo = document.createElement('p')
+    paragrafo.textContent = 'Fluxo de água acima do recomendado.'
+    aviso.appendChild(paragrafo)
+
+    aviso.style.visibility = 'visible'
+    aviso.style.background = 'yellow'
+} else {
+    aviso.style.visibility = 'visible'
+    aviso.style.background = '#A8D0E6'
+    icone.setAttribute('src', '../../templates/static/check-circle-outline.svg')
+}
+
+</script>
+
+{% endblock %}

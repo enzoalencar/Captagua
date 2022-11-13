@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap');
+
+@font-face {
+    font-family: 'adumuregular';
+    src: url('../adumu-webfont.woff2') format('woff2'),
+         url('../adumu-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'agrandirregular';
+    src: url('../agrandir-regular-webfont.woff2') format('woff2'),
+         url('../agrandir-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --amarelo: #F8E9A1;
+    --vermelhp: #F76C6C;
+    --azul-claro: #A8D0E6;
+    --azul-escuro: #24305E;
+    --border-radius: 30px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: 'agrandirregular', cursive;
+    max-height: 100%;
+    background-image: url('../oceano.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5vh;
+    height: 13vh;
+    background-color: var(--azul-escuro);
+}
+
+h1 {
+    font-size: 3rem;
+    color: var(--azul-claro)
+}
+
+nav {
+    display: flex;
+    gap: 5vh;
+}
+
+nav a {
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: var(--azul-claro)
+}
+
+.selecionado {
+    color: var(--azul-claro)
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    gap: 7vh;
+    padding: 5vh 15vh 5vh 10vh;
+}
+
+.titulo {
+    font-family: 'adumuregular';
+    background-color: var(--azul-escuro);
+    border-radius: var(--border-radius);
+    font-size: 1.8rem;
+    color: white;
+    width: fit-content;
+    padding: 2vh 6vh;
+}
+
+.aviso {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius);
+    font-size: 1.6rem;
+    text-align: center;
+    padding: 3vh;
+    margin-top: 9vh;
+    visibility: hidden;
+}
+
+.aviso img {
+    width: 20vh;
+    height: auto;
+}
+
+.secao-grafico {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    width: 100%;
+}
+
+.grafico {
+    background-color: var(--azul-escuro);
+    border-radius: var(--border-radius);
+    padding: 3vh;
+}
+

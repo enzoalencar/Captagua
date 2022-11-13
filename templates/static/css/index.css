@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap');
+
+@font-face {
+    font-family: 'adumuregular';
+    src: url('../adumu-webfont.woff2') format('woff2'),
+         url('../adumu-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'agrandirregular';
+    src: url('../agrandir-regular-webfont.woff2') format('woff2'),
+         url('../agrandir-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --amarelo: #F8E9A1;
+    --vermelhp: #F76C6C;
+    --azul-claro: #A8D0E6;
+    --azul-escuro: #24305E;
+    --border-radius: 30px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: 'agrandirregular', cursive;
+    max-height: 100%;
+    background-image: url('../oceano.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5vh;
+    height: 13vh;
+    background-color: var(--azul-escuro);
+}
+
+h1 {
+    font-size: 3rem;
+    color: var(--azul-claro)
+}
+
+nav {
+    display: flex;
+    gap: 5vh;
+}
+
+nav a {
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: var(--azul-claro)
+}
+
+.selecionado {
+    color: var(--azul-claro)
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 13vh 8vh;
+    background-color: rgba(45, 60, 113, 0.7);
+    height: 87vh;
+}
+
+main > p {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    text-align: justify;
+    font-size: 2rem;
+    color: white;
+    margin-top: -100px
+}
+
+main > div {
+    flex: 1;
+    display: flex;
+    gap: 8vh;
+}
+
+main a {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2vh;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.7rem;
+}
+
+.circulo {
+    border-radius: 50%;
+    background-color: var(--azul-claro);
+    width: 21vh;
+    height: 21vh;
+}
+
+.circulo:hover {
+    box-shadow: 0 0 20px black;
+}
+
+.circulo img {
+    width: 19vh;
+    height: auto;
+    opacity: 0.6;
+}
+
+.circulo.gota img {
+    width: 18vh;
+    margin-top: 1vh;
+    opacity: 0.62;
+}

@@ -1,0 +1,27 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block 'head' %}<link href="{% static 'css/index.css' %}" rel="stylesheet">{% endblock %}
+
+{% block 'title' %}Index{% endblock %}
+
+{% block 'body' %}
+<header>
+    <h1>Captágua</h1>
+    <nav>
+        <a href="../" class="selecionado">Página Inicial</a>
+        <a href="../fluxo">Fluxo</a>
+        <a href="../umidade">Umidade</a>
+    </nav>
+</header>
+<main>
+    <p>&emsp; No projeto de UPX, será construído um mecanismo de captação de água da chuva, sob a ótica da sexta meta global (Água potável e Saneamento) dentre os 17 Objetivos de Desenvolvimento Sustentável (ODS) da ONU.</p> 
+    <p>&emsp; O sistema contará com sensores de umidade e fluxo, além de uma placa ESP-32, responsável por automatizar o reaproveitamento da água, bem como o envio dos dados coletados pelos sensores para um banco de dados remoto.</p>
+    <p>&emsp; Nesse contexto, surge a ideia de disponibilizar essas informações online, através de um site, para o cliente final (no perfil de um pequeno/médio agricultor), a fim de proporcionar uma análise em tempo real do funcionamento do sistema e estimular o usuário a tomar decisões inteligentes para o seu negócio.</p>
+        
+    <div>
+        <a href="../fluxo"><div class="circulo gota"><img src="{% static 'raindrops-svgrepo-com.svg' %}" /></div>Fluxo de água</a>
+        <a href="../umidade"><div class="circulo nuvem"><img src="{% static 'cloud-outline.svg' %}" /></div>Umidade do solo</a>
+    </div>
+</main>
+{% endblock %}
