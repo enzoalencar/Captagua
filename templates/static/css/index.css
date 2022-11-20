@@ -91,7 +91,7 @@ main > p {
     justify-content: center;
     flex: 1;
     text-align: justify;
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: white;
     margin-top: -100px
 }
